@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Home, Briefcase, User, Mail, FileText } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -23,6 +23,7 @@ const navItems: NavItem[] = [
 export default function MagneticNav() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
@@ -35,7 +36,7 @@ export default function MagneticNav() {
   // Track mouse position relative to nav
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (navRef.current) {
+      if (navRef.current && isHovering) {
         const rect = navRef.current.getBoundingClientRect();
         setMousePosition({
           x: e.clientX - rect.left,
@@ -46,27 +47,30 @@ export default function MagneticNav() {
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  }, [isHovering]);
 
-  // Calculate magnetic effect for each item
-  const getMagneticEffect = (index: number) => {
-    if (!navRef.current) return { scale: 1, y: 0 };
-
-    const itemWidth = 64; // approximate width of each nav item
-    const itemCenter = index * itemWidth + itemWidth / 2 + 16; // 16 = padding
-    const distance = Math.abs(mousePosition.x - itemCenter);
-    const maxDistance = 100;
-
-    if (distance < maxDistance) {
-      const strength = 1 - distance / maxDistance;
-      return {
-        scale: 1 + strength * 0.15,
-        y: -strength * 8,
-      };
+  // Calculate magnetic effects based on mouse position (memoized)
+  const magneticEffects = useMemo(() => {
+    if (!isHovering) {
+      return navItems.map(() => ({ scale: 1, y: 0 }));
     }
 
-    return { scale: 1, y: 0 };
-  };
+    const itemWidth = 64;
+    return navItems.map((_, index) => {
+      const itemCenter = index * itemWidth + itemWidth / 2 + 16;
+      const distance = Math.abs(mousePosition.x - itemCenter);
+      const maxDistance = 100;
+
+      if (distance < maxDistance) {
+        const strength = 1 - distance / maxDistance;
+        return {
+          scale: 1 + strength * 0.15,
+          y: -strength * 8,
+        };
+      }
+      return { scale: 1, y: 0 };
+    });
+  }, [mousePosition.x, isHovering]);
 
   return (
     <motion.nav
@@ -79,10 +83,12 @@ export default function MagneticNav() {
         delay: 0.2,
       }}
       className="fixed bottom-8 left-1/2 z-40 -translate-x-1/2"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
     >
       <div className="glass-surface backdrop-blur-[10px] flex items-center gap-1 rounded-full px-4 py-3 shadow-2xl">
         {navItems.map((item, index) => {
-          const effect = getMagneticEffect(index);
+          const effect = magneticEffects[index];
           const Icon = item.icon;
 
           return (

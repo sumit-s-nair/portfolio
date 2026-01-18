@@ -16,7 +16,7 @@ export default function ContactSection() {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-cyan-400 mb-2">// Contact</p>
+          <p className="font-mono text-sm text-cyan-400 mb-2">{`// Contact`}</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white">&lt; Connect /&gt;</h2>
         </motion.div>
 

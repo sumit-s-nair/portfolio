@@ -181,12 +181,13 @@ export default function Hero() {
       <CornerMarker position="bl" />
       <CornerMarker position="br" />
 
-      {/* Main Content - IDE native, no card */}
+      {/* Main Content - with backdrop blur for mobile readability */}
       <div className="relative z-10 text-center px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="relative px-4 py-8 sm:px-8 sm:py-10 rounded-2xl bg-black/30 backdrop-blur-[4px]"
         >
           {/* Name - single line with whitespace-nowrap */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white whitespace-nowrap mb-4">

@@ -15,7 +15,7 @@ export default function ProjectsSection() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-cyan-400 mb-2">// Work</p>
+          <p className="font-mono text-sm text-cyan-400 mb-2">{`// Work`}</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white">&lt; Projects /&gt;</h2>
         </motion.div>
 

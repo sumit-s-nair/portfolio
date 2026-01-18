@@ -85,7 +85,7 @@ export default function AboutSection() {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-cyan-400 mb-2">// About</p>
+          <p className="font-mono text-sm text-cyan-400 mb-2">{`// About`}</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white">&lt; Profile &#47;&gt;</h2>
         </motion.div>
 
@@ -96,7 +96,7 @@ export default function AboutSection() {
           <BentoCard className="md:col-span-1 lg:col-span-1 md:row-span-2 p-0" delay={0} floatDelay={0}>
             <div className="relative w-full h-full min-h-[280px]">
               <Image
-                src="/profile.webp"
+                src="/profile.jpg"
                 alt="Sumit Santhosh Nair"
                 fill
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
@@ -111,7 +111,7 @@ export default function AboutSection() {
 
           {/* Location & Time Card */}
           <BentoCard className="md:col-span-2 lg:col-span-2 p-5" delay={0.05} floatDelay={1}>
-            <div className="flex items-start justify-between h-full">
+            <div className="flex flex-col sm:flex-row  items-start justify-between h-full">
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <MapPin className="w-4 h-4 text-cyan-400" />
@@ -121,7 +121,7 @@ export default function AboutSection() {
                 <p className="text-sm text-gray-500">India 🇮🇳</p>
               </div>
               <div className="text-right">
-                <Clock className="w-4 h-4 text-cyan-400 ml-auto mb-2" />
+                <Clock className="w-4 h-4 text-cyan-400 ml-auto mb-2 hidden sm:block" />
                 <p className="text-2xl font-mono text-white">{time}</p>
               </div>
             </div>

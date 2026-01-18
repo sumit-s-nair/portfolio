@@ -60,17 +60,27 @@ export function useTypewriter({
       return () => clearTimeout(timer);
     } else {
       // Typing complete
-      setIsComplete(true);
-      setIsTyping(false);
+      const completeTimer = setTimeout(() => {
+        setIsComplete(true);
+        setIsTyping(false);
+
+        if (loop) {
+          setIsPaused(true);
+        }
+      }, 0);
 
       if (loop) {
-        setIsPaused(true);
         const pauseTimer = setTimeout(() => {
           restart();
         }, pauseDuration);
 
-        return () => clearTimeout(pauseTimer);
+        return () => {
+          clearTimeout(completeTimer);
+          clearTimeout(pauseTimer);
+        };
       }
+
+      return () => clearTimeout(completeTimer);
     }
   }, [currentIndex, isTyping, isPaused, text, speed, loop, pauseDuration, restart]);
 

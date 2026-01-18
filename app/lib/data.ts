@@ -39,7 +39,7 @@ export const siteConfig: SiteConfig = {
     },
     social: {
         github: "https://github.com/sumit-s-nair",
-        linkedin: "https://linkedin.com/in/sumit-s-nair",
+        linkedin: "https://www.linkedin.com/in/sumit-santhosh-nair-3ba522283/",
         email: "mailto:sumitnair731@gmail.com",
     },
 };

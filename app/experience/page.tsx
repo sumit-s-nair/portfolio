@@ -37,7 +37,7 @@ export default function ExperiencePage() {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-cyan-400 mb-2">// Experience</p>
+          <p className="font-mono text-sm text-cyan-400 mb-2">{`// Experience`}</p>
           <h1 className="text-3xl sm:text-4xl font-bold text-white">
             &lt; Changelog /&gt;
           </h1>
