@@ -81,3 +81,91 @@ export const techStack = [
     "Flutter", "MongoDB", "PostgreSQL", "Firebase", "Git/GitHub",
     "Tailwind CSS", "Dart", "TensorFlow", "PyTorch", "C", "C++"
 ];
+
+// Experience data
+export interface Experience {
+    id: string;
+    role: string;
+    company: string;
+    date: string;
+    desc: string;
+    points: string[];
+    tech: string[];
+    isCurrent?: boolean;
+}
+
+export const experienceData: Experience[] = [
+    {
+        id: "01",
+        role: "Full Stack Developer Intern",
+        company: "Kapybara",
+        date: "DEC 2025 - JAN 2026",
+        desc: "Contributed to production platform architecture.",
+        points: [
+            "Developed scalable full-stack features for the core product line.",
+            "Optimized backend queries and API response times for production."
+        ],
+        tech: ["Next.js", "TypeScript", "PostgreSQL"]
+    },
+    {
+        id: "02",
+        role: "Head of Web Development",
+        company: "GronIT",
+        date: "MAY 2025 - PRESENT",
+        desc: "Leading technical strategy for club infrastructure.",
+        points: [
+            "Architected the official club website with a custom CMS for resource management.",
+            "Defined technical criteria and problem statements for the Green Glitch 2025 ideathon."
+        ],
+        tech: ["React", "Node.js", "System Design"],
+        isCurrent: true
+    },
+    {
+        id: "03",
+        role: "Subject Matter Expert (SME)",
+        company: "PESU.io",
+        date: "AUG 2025 - DEC 2025",
+        desc: "Technical mentorship for 60+ students.",
+        points: [
+            "Guided a cohort of 60+ students through the full software development lifecycle.",
+            "Conducted code reviews and debugging sessions to ensure project deployment."
+        ],
+        tech: ["Mentorship", "Code Review", "Full Stack"]
+    },
+    {
+        id: "04",
+        role: "Teaching Assistant",
+        company: "PES University",
+        date: "AUG 2025 - DEC 2025",
+        desc: "Academic support and lab management.",
+        points: [
+            "Assisted faculty in managing laboratory sessions and grading technical assignments.",
+            "Provided debugging support for students in core Computer Science courses."
+        ],
+        tech: ["Academic", "Lab Support"]
+    },
+    {
+        id: "05",
+        role: "Research Intern",
+        company: "RAPID",
+        date: "JUN 2025 - JUL 2025",
+        desc: "RL Agents for terrain navigation.",
+        points: [
+            "Engineered a training env using high-res Digital Elevation Models (DEMs).",
+            "Trained PPO agents and validated generated paths against human GPX trails."
+        ],
+        tech: ["Python", "Reinforcement Learning", "PyTorch"]
+    },
+    {
+        id: "06",
+        role: "Core Developer",
+        company: "Nexus & GronIT",
+        date: "OCT 2024 - MAY 2025",
+        desc: "Hackathon mentorship and dev support.",
+        points: [
+            "Mentored 10+ teams on project architecture during the Nexus Skill Dev program.",
+            "Provided hands-on debugging guidance for 8+ teams at the Genesys State Hackathon."
+        ],
+        tech: ["Community", "Debugging"]
+    }
+];
