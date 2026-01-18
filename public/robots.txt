@@ -1,0 +1,45 @@
+# https://sumit-s-nair.vercel.app robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://sumit-s-nair.vercel.app/sitemap.xml
+
+# Disallow admin/api routes if any
+Disallow: /api/
+
+# Allow all major crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# AI/LLM Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Cohere-AI
+Allow: /
+
+# Host
+Host: https://sumit-s-nair.vercel.app

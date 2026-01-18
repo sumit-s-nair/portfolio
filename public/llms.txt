@@ -1,0 +1,58 @@
+# Sumit Santhosh Nair - Portfolio
+
+> Full Stack Developer & Videographer based in Bengaluru, India
+
+## About
+
+I'm Sumit Santhosh Nair, an Engineering student at PES University focused on building scalable web applications and exploring multi-modal AI systems. I work as Head of Web Development at GronIT and have experience as a Teaching Assistant and Subject Matter Expert.
+
+## Skills
+
+- **Frontend**: React, Next.js, TypeScript, Tailwind CSS, Framer Motion
+- **Backend**: Node.js, NestJS, PostgreSQL, tRPC, Drizzle ORM
+- **Mobile**: Flutter, Dart
+- **AI/ML**: Python, PyTorch, Reinforcement Learning, PPO
+- **Tools**: Git, Docker, AWS, Vercel
+
+## Projects
+
+### Papertrail
+A full-stack, multi-user blogging platform with markdown editor, category management, OAuth authentication, and dark mode. Features tRPC for type-safe APIs and Drizzle ORM.
+- Tech: Next.js 15, tRPC, PostgreSQL, Drizzle ORM, TypeScript
+- Live: https://papertrail-chi.vercel.app/
+- GitHub: https://github.com/sumit-s-nair/papertrail
+
+### Terrain-Aware Path Recommendation
+An RL-based pathfinding system using PyBullet physics simulation. Trains agents to discover optimal hiking routes with realistic terrain friction and energy models.
+- Tech: Python, PyBullet, PPO, Reinforcement Learning
+- GitHub: https://github.com/sumit-s-nair/terrain-aware-path-recommendation
+
+### Trailo
+A motorcycle group riding and real-time tracking app. Features live location sharing, group management, trail discovery, and SOS safety features for adventurers.
+- Tech: Flutter, NestJS, Real-time, Maps API, WebSocket
+- Live: https://ridetrailo.com/
+
+## Experience
+
+- **Full Stack Developer Intern** at Kapybara (Dec 2025 - Jan 2026)
+- **Head of Web Development** at GronIT (May 2025 - Present)
+- **Subject Matter Expert (SME)** at PESU.io (Aug 2025 - Dec 2025)
+- **Teaching Assistant** at PES University (Aug 2025 - Dec 2025)
+- **Research Intern** at RAPID (Jun 2025 - Jul 2025)
+- **Core Developer** at Nexus & GronIT (Oct 2024 - May 2025)
+
+## Contact
+
+- Email: sumitnair731@gmail.com
+- GitHub: https://github.com/sumit-s-nair
+- LinkedIn: https://linkedin.com/in/sumit-s-nair
+- Website: https://sumit-s-nair.vercel.app
+
+## Site Structure
+
+- `/` - Home page with hero, about, projects, and contact sections
+- `/experience` - Detailed experience timeline in Git changelog style
+
+---
+
+This portfolio was built with Next.js 16, Tailwind CSS, and Framer Motion.
