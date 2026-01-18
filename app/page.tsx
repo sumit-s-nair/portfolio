@@ -6,6 +6,7 @@ import Loader from "./components/Loader";
 import Hero from "./components/Hero";
 import ProjectCard from "./components/ProjectCard";
 import MagneticNav from "./components/MagneticNav";
+import AboutSection from "./components/AboutSection";
 
 // Sample project data - replace with your actual projects
 const projects = [
@@ -84,20 +85,21 @@ export default function Home() {
             {/* Hero Section */}
             <Hero />
 
+            {/* About Section - Now above Projects */}
+            <AboutSection />
+
             {/* Projects Section */}
-            <section id="work" className="relative px-6 py-32">
-              <div className="mx-auto max-w-7xl">
+            <section id="work" className="relative px-6 py-32 bg-black">
+              <div className="mx-auto max-w-6xl">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.6 }}
-                  className="mb-16 text-center"
+                  className="mb-12"
                 >
-                  <p className="mb-2 font-mono text-sm uppercase tracking-[0.3em] text-cyan-400">
-                    Selected Work
-                  </p>
-                  <h2 className="text-4xl font-bold text-mist sm:text-5xl">Projects</h2>
+                  <p className="font-mono text-sm text-cyan-400 mb-2">// Work</p>
+                  <h2 className="text-3xl sm:text-4xl font-bold text-white">&lt; Projects /&gt;</h2>
                 </motion.div>
 
                 {/* Projects Grid */}
@@ -109,76 +111,27 @@ export default function Home() {
               </div>
             </section>
 
-            {/* About Section */}
-            <section id="about" className="relative px-6 py-32">
-              <div className="mx-auto max-w-4xl">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
-                  className="glass-surface rounded-3xl p-8 sm:p-12"
-                >
-                  <p className="mb-2 font-mono text-sm uppercase tracking-[0.3em] text-cyan-400">
-                    About
-                  </p>
-                  <h2 className="mb-6 text-3xl font-bold text-mist sm:text-4xl">
-                    The mind behind the code
-                  </h2>
-                  <div className="space-y-4 text-lg leading-relaxed text-steel">
-                    <p>
-                      I&apos;m a creative developer passionate about pushing the boundaries
-                      of what&apos;s possible on the web. With a background in both design
-                      and engineering, I bridge the gap between aesthetics and functionality.
-                    </p>
-                    <p>
-                      When I&apos;m not crafting pixel-perfect interfaces, you&apos;ll find me
-                      experimenting with generative art, exploring new animation libraries,
-                      or diving deep into the latest web technologies.
-                    </p>
-                  </div>
-
-                  {/* Tech stack */}
-                  <div className="mt-8 flex flex-wrap gap-3">
-                    {["React", "Next.js", "TypeScript", "Framer Motion", "Three.js", "Tailwind CSS"].map(
-                      (tech) => (
-                        <span
-                          key={tech}
-                          className="rounded-full bg-white/5 px-4 py-2 font-mono text-sm text-steel"
-                        >
-                          {tech}
-                        </span>
-                      )
-                    )}
-                  </div>
-                </motion.div>
-              </div>
-            </section>
-
             {/* Contact Section */}
-            <section id="contact" className="relative px-6 py-32">
-              <div className="mx-auto max-w-4xl text-center">
+            <section id="contact" className="relative px-6 py-32 bg-black">
+              <div className="mx-auto max-w-6xl">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.6 }}
+                  className="text-center"
                 >
-                  <p className="mb-2 font-mono text-sm uppercase tracking-[0.3em] text-cyan-400">
-                    Let&apos;s Connect
-                  </p>
-                  <h2 className="mb-6 text-4xl font-bold text-mist sm:text-5xl">
-                    Have an idea?
-                  </h2>
-                  <p className="mb-10 text-lg text-steel">
+                  <p className="font-mono text-sm text-cyan-400 mb-2">// Contact</p>
+                  <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">&lt; Connect /&gt;</h2>
+                  <p className="mb-10 text-lg text-gray-400 max-w-xl mx-auto">
                     I&apos;m always open to discussing new projects, creative ideas, or
                     opportunities to be part of something amazing.
                   </p>
                   <motion.a
-                    href="mailto:hello@sumitnair.dev"
+                    href="mailto:sumitnair731@gmail.com"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-8 py-4 font-semibold text-slate-900 transition-colors hover:bg-cyan-400"
+                    className="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-8 py-4 font-semibold text-black transition-colors hover:bg-cyan-400"
                   >
                     Get in Touch
                   </motion.a>
@@ -187,12 +140,12 @@ export default function Home() {
             </section>
 
             {/* Footer */}
-            <footer className="border-t border-white/5 px-6 py-8">
-              <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row">
-                <p className="font-mono text-sm text-steel">
+            <footer className="border-t border-white/5 px-6 py-8 bg-black">
+              <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
+                <p className="font-mono text-sm text-gray-500">
                   © {new Date().getFullYear()} Sumit Nair. All rights reserved.
                 </p>
-                <p className="font-mono text-xs text-steel/50">
+                <p className="font-mono text-xs text-gray-600">
                   Built with Next.js, Tailwind, and Framer Motion
                 </p>
               </div>
