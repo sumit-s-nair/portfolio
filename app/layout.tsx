@@ -64,7 +64,7 @@ export const metadata: Metadata = {
       "Full Stack Developer & Videographer building scalable web applications and exploring multi-modal AI systems.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/profile.jpg",
         width: 1200,
         height: 630,
         alt: "Sumit Santhosh Nair - Full Stack Developer",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     title: "Sumit Santhosh Nair | Full Stack Developer",
     description:
       "Full Stack Developer & Videographer building scalable web applications.",
-    images: ["/og-image.png"],
+    images: ["/profile.jpg"],
     creator: "@sumit_s_nair",
   },
   alternates: {

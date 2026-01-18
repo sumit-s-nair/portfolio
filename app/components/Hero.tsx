@@ -181,7 +181,7 @@ export default function Hero() {
       <CornerMarker position="bl" />
       <CornerMarker position="br" />
 
-      {/* Main Content - with backdrop blur for mobile readability */}
+      {/* Main Content */}
       <div className="relative z-10 text-center px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
