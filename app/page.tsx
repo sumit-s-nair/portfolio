@@ -7,42 +7,32 @@ import Hero from "./components/Hero";
 import ProjectCard from "./components/ProjectCard";
 import MagneticNav from "./components/MagneticNav";
 import AboutSection from "./components/AboutSection";
-
-// Sample project data - replace with your actual projects
+// Project data
 const projects = [
   {
-    title: "Neural Canvas",
+    title: "Papertrail",
     description:
-      "An AI-powered generative art platform that transforms text prompts into stunning visual artwork using deep learning models.",
-    tags: ["Next.js", "Python", "TensorFlow", "WebGL"],
-    imageUrl: "/projects/neural-canvas.jpg",
-    liveUrl: "https://neural-canvas.demo",
-    githubUrl: "https://github.com/sumit/neural-canvas",
+      "A full-stack, multi-user blogging platform with markdown editor, category management, OAuth authentication, and dark mode. Features tRPC for type-safe APIs and Drizzle ORM.",
+    tags: ["Next.js 15", "tRPC", "PostgreSQL", "Drizzle ORM", "TypeScript"],
+    imageUrl: "/projects/paper-trail.png",
+    liveUrl: "https://papertrail-chi.vercel.app/",
+    githubUrl: "https://github.com/sumit-s-nair/papertrail",
   },
   {
-    title: "Velocity",
+    title: "Terrain-Aware Path Recommendation",
     description:
-      "Real-time collaborative code editor with AI pair programming, featuring live cursors and intelligent code suggestions.",
-    tags: ["React", "WebSocket", "Monaco", "OpenAI"],
-    imageUrl: "/projects/velocity.jpg",
-    liveUrl: "https://velocity.demo",
-    githubUrl: "https://github.com/sumit/velocity",
+      "An RL-based pathfinding system using PyBullet physics simulation. Trains agents to discover optimal hiking routes with realistic terrain friction and energy models.",
+    tags: ["Python", "PyBullet", "PPO", "Reinforcement Learning"],
+    imageUrl: "/projects/terrain-aware-path-recommendation.png",
+    githubUrl: "https://github.com/sumit-s-nair/terrain-aware-path-recommendation",
   },
   {
-    title: "Quantum Dash",
+    title: "Trailo",
     description:
-      "A data visualization dashboard for quantum computing experiments with interactive 3D Bloch sphere representations.",
-    tags: ["Three.js", "D3.js", "TypeScript", "Qiskit"],
-    imageUrl: "/projects/quantum-dash.jpg",
-    githubUrl: "https://github.com/sumit/quantum-dash",
-  },
-  {
-    title: "SoundScape",
-    description:
-      "Immersive audio experience generator using spatial audio and procedural music generation based on user emotions.",
-    tags: ["Web Audio API", "ToneJS", "React", "ML5.js"],
-    imageUrl: "/projects/soundscape.jpg",
-    liveUrl: "https://soundscape.demo",
+      "A motorcycle group riding and real-time tracking app. Features live location sharing, group management, trail discovery, and SOS safety features for adventurers.",
+    tags: ["Flutter", "NestJS", "Real-time", "Maps API", "WebSocket"],
+    imageUrl: "/projects/trailo.png",
+    liveUrl: "https://ridetrailo.com/",
   },
 ];
 
