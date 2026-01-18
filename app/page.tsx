@@ -54,7 +54,17 @@ export default function Home() {
   const handleLoaderComplete = useCallback(() => {
     setIsLoading(false);
     // Small delay before showing content for smoother transition
-    setTimeout(() => setShowContent(true), 100);
+    setTimeout(() => {
+      setShowContent(true);
+      // After content shows, check for hash and scroll to it
+      setTimeout(() => {
+        const hash = window.location.hash;
+        if (hash) {
+          const id = hash.replace('#', '');
+          document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }, 100);
   }, []);
 
   return (

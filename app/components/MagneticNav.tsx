@@ -2,25 +2,29 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Home, Briefcase, User, Mail } from "lucide-react";
+import { Home, Briefcase, User, Mail, FileText } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 interface NavItem {
   icon: React.ElementType;
   label: string;
   href: string;
+  isExternal?: boolean;
 }
 
 const navItems: NavItem[] = [
-  { icon: Home, label: "Home", href: "#home" },
-  { icon: Briefcase, label: "Work", href: "#work" },
-  { icon: User, label: "About", href: "#about" },
-  { icon: Mail, label: "Contact", href: "#contact" },
+  { icon: Home, label: "Home", href: "/" },
+  { icon: Briefcase, label: "Work", href: "/#work" },
+  { icon: FileText, label: "Experience", href: "/experience", isExternal: true },
+  { icon: User, label: "About", href: "/#about" },
+  { icon: Mail, label: "Contact", href: "/#contact" },
 ];
 
 export default function MagneticNav() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   // Show nav after a short delay (after loader)
   useEffect(() => {
@@ -86,9 +90,22 @@ export default function MagneticNav() {
               key={item.label}
               href={item.href}
               onClick={(e) => {
-                e.preventDefault();
-                const id = item.href.replace('#', '');
-                document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+                // For external page links, navigate normally
+                if (item.isExternal) {
+                  return;
+                }
+                
+                // If we're on the home page and it's a hash link, smooth scroll
+                if (pathname === "/" && item.href.includes("#")) {
+                  e.preventDefault();
+                  const id = item.href.replace("/#", "").replace("#", "");
+                  if (id) {
+                    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }
+                
               }}
               animate={{
                 scale: effect.scale,
