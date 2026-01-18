@@ -4,11 +4,11 @@ import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Loader from "./components/Loader";
 import Hero from "./components/Hero";
-import ProjectCard from "./components/ProjectCard";
 import MagneticNav from "./components/MagneticNav";
 import AboutSection from "./components/AboutSection";
+import ProjectsSection from "./components/ProjectsSection";
 import ContactSection from "./components/ContactSection";
-import { projects, siteConfig } from "./lib/data";
+import { siteConfig } from "./lib/data";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +18,6 @@ export default function Home() {
     setIsLoading(false);
     setTimeout(() => {
       setShowContent(true);
-      // After content shows, check for hash and scroll to it
       setTimeout(() => {
         const hash = window.location.hash;
         if (hash) {
@@ -31,10 +30,10 @@ export default function Home() {
 
   return (
     <>
-      {/* Decoder Loader */}
-      <AnimatePresence>{isLoading && <Loader onComplete={handleLoaderComplete} />}</AnimatePresence>
+      <AnimatePresence>
+        {isLoading && <Loader onComplete={handleLoaderComplete} />}
+      </AnimatePresence>
 
-      {/* Main Content */}
       <AnimatePresence>
         {showContent && (
           <motion.div
@@ -43,35 +42,9 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="relative min-h-screen bg-black"
           >
-            {/* Hero Section */}
             <Hero />
-
-            {/* About Section */}
             <AboutSection />
-
-            {/* Projects Section */}
-            <section id="work" className="relative px-6 py-32 bg-black">
-              <div className="mx-auto max-w-6xl">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
-                  className="mb-12"
-                >
-                  <p className="font-mono text-sm text-cyan-400 mb-2">// Work</p>
-                  <h2 className="text-3xl sm:text-4xl font-bold text-white">&lt; Projects /&gt;</h2>
-                </motion.div>
-
-                <div className="grid gap-8 md:grid-cols-2">
-                  {projects.map((project, index) => (
-                    <ProjectCard key={project.title} {...project} index={index} />
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            {/* Contact Section */}
+            <ProjectsSection />
             <ContactSection />
 
             {/* Footer */}
@@ -86,7 +59,6 @@ export default function Home() {
               </div>
             </footer>
 
-            {/* Magnetic Navigation Dock */}
             <MagneticNav />
           </motion.div>
         )}
