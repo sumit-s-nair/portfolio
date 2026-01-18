@@ -76,7 +76,7 @@ export default function MagneticNav() {
       }}
       className="fixed bottom-8 left-1/2 z-40 -translate-x-1/2"
     >
-      <div className="glass-surface flex items-center gap-1 rounded-full px-4 py-3 shadow-2xl">
+      <div className="glass-surface backdrop-blur-[10px] flex items-center gap-1 rounded-full px-4 py-3 shadow-2xl">
         {navItems.map((item, index) => {
           const effect = getMagneticEffect(index);
           const Icon = item.icon;
@@ -85,6 +85,11 @@ export default function MagneticNav() {
             <motion.a
               key={item.label}
               href={item.href}
+              onClick={(e) => {
+                e.preventDefault();
+                const id = item.href.replace('#', '');
+                document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+              }}
               animate={{
                 scale: effect.scale,
                 y: effect.y,
@@ -101,13 +106,13 @@ export default function MagneticNav() {
               whileTap={{ scale: 0.9 }}
               className="group relative flex flex-col items-center justify-center rounded-full p-3 transition-colors hover:bg-white/10"
             >
-              <Icon className="h-5 w-5 text-steel transition-colors group-hover:text-amber" />
+              <Icon className="h-5 w-5 text-gray-500 transition-colors group-hover:text-cyan-400" />
 
               {/* Label tooltip */}
               <motion.span
                 initial={{ opacity: 0, y: 10, scale: 0.8 }}
                 whileHover={{ opacity: 1, y: -8, scale: 1 }}
-                className="pointer-events-none absolute -top-8 whitespace-nowrap rounded-md bg-graphite px-2 py-1 font-mono text-xs text-mist opacity-0"
+                className="pointer-events-none absolute -top-8 whitespace-nowrap rounded-md bg-slate-800 px-2 py-1 font-mono text-xs text-slate-100 opacity-0"
               >
                 {item.label}
               </motion.span>
@@ -117,7 +122,7 @@ export default function MagneticNav() {
       </div>
 
       {/* Glow effect under dock */}
-      <div className="absolute -bottom-2 left-1/2 -z-10 h-8 w-3/4 -translate-x-1/2 rounded-full bg-amber/10 blur-xl" />
+      <div className="absolute -bottom-2 left-1/2 -z-10 h-8 w-3/4 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-xl" />
     </motion.nav>
   );
 }

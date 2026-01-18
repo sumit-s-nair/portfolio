@@ -55,7 +55,7 @@ export default function ProjectCard({
         className="relative overflow-hidden rounded-2xl glass"
       >
         {/* Ambient glow on hover */}
-        <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-amber/0 via-transparent to-amber/0 opacity-0 transition-opacity duration-500 group-hover:opacity-20" />
+        <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-cyan-500/0 via-transparent to-cyan-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-20" />
 
         {/* Project thumbnail */}
         {imageUrl && (
@@ -66,19 +66,19 @@ export default function ProjectCard({
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.4 }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-graphite via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
           </div>
         )}
 
         {/* Content */}
         <div className="relative p-6">
           {/* Title with hover glow */}
-          <h3 className="mb-2 text-xl font-semibold text-mist transition-colors group-hover:text-amber">
+          <h3 className="mb-2 text-xl font-semibold text-slate-100 transition-colors group-hover:text-cyan-400">
             {title}
           </h3>
 
           {/* Description */}
-          <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-steel">
+          <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-slate-400">
             {description}
           </p>
 
@@ -87,7 +87,7 @@ export default function ProjectCard({
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-white/5 px-3 py-1 font-mono text-xs text-steel transition-colors group-hover:bg-amber/10 group-hover:text-amber/80"
+                className="rounded-full bg-white/5 px-3 py-1 font-mono text-xs text-slate-400 transition-colors group-hover:bg-cyan-500/10 group-hover:text-cyan-400/80"
               >
                 {tag}
               </span>
@@ -103,7 +103,7 @@ export default function ProjectCard({
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 text-sm text-steel transition-colors hover:text-amber"
+                className="flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-cyan-400"
               >
                 <ExternalLink className="h-4 w-4" />
                 <span className="font-mono">Live</span>
@@ -116,7 +116,7 @@ export default function ProjectCard({
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 text-sm text-steel transition-colors hover:text-amber"
+                className="flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-cyan-400"
               >
                 <Github className="h-4 w-4" />
                 <span className="font-mono">Code</span>
@@ -126,7 +126,7 @@ export default function ProjectCard({
         </div>
 
         {/* Deep shadow effect */}
-        <div className="absolute -bottom-4 left-4 right-4 -z-10 h-16 rounded-2xl bg-black/50 blur-2xl transition-all duration-300 group-hover:-bottom-6 group-hover:bg-amber/20 group-hover:blur-3xl" />
+        <div className="absolute -bottom-4 left-4 right-4 -z-10 h-16 rounded-2xl bg-black/50 blur-2xl transition-all duration-300 group-hover:-bottom-6 group-hover:bg-cyan-500/20 group-hover:blur-3xl" />
       </motion.div>
     </motion.article>
   );
