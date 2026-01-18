@@ -3,13 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { MapPin, Code, Camera, Clock } from "lucide-react";
-
-// Tech stack for marquee
-const techStack = [
-  "TypeScript", "React", "Next.js", "Node.js", "Python", 
-  "PostgreSQL", "TailwindCSS", "Framer Motion", "TensorFlow",
-  "Prisma", "GraphQL", "Docker", "AWS", "Vercel"
-];
+import { techStack, siteConfig } from "../lib/data";
 
 // Bento card wrapper with subtle antigravity effect
 function BentoCard({ 
@@ -180,7 +174,7 @@ export default function AboutSection() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
               </span>
-              <p className="text-sm text-white">Shipping stealth AI project</p>
+              <p className="text-sm text-white">{siteConfig.status}</p>
             </div>
           </BentoCard>
         </div>
