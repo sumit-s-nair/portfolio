@@ -100,22 +100,23 @@ export const experienceData: Experience[] = [
         role: "Full Stack Developer Intern",
         company: "Kapybara",
         date: "DEC 2025 - JAN 2026",
-        desc: "Contributed to production platform architecture.",
+        desc: "Led the development of AI-powered utilities and core platform UI redesigns.",
         points: [
-            "Developed scalable full-stack features for the core product line.",
-            "Optimized backend queries and API response times for production."
+            "Engineered multiple complex tools from scratch, including an LLM text generator, copywriting assistant, backlink checker, and a comprehensive geo-analysis tool.",
+            "Revamped the platform's frontend architecture, redesigning multiple sections for the Home and Pricing pages to align with new branding.",
+            "Implemented analytics and user tracking pipelines by integrating PostHog and Google Analytics across the application."
         ],
-        tech: ["Next.js", "TypeScript", "PostgreSQL"]
+        tech: ["Next.js", "TypeScript", "PostgreSQL", "tRPC", "LLM APIs"]
     },
     {
         id: "02",
         role: "Head of Web Development",
         company: "GronIT",
-        date: "MAY 2025 - PRESENT",
-        desc: "Leading technical strategy for club infrastructure.",
+        date: "OCT 2024 - PRESENT",
+        desc: "Led the development of the official club website",
         points: [
             "Architected the official club website with a custom CMS for resource management.",
-            "Defined technical criteria and problem statements for the Green Glitch 2025 ideathon."
+            "Defined technical criteria and problem statements for multiple club events such as ideathons and hackathons while mentoring teams."
         ],
         tech: ["React", "Node.js", "System Design"],
         isCurrent: true
@@ -123,26 +124,27 @@ export const experienceData: Experience[] = [
     {
         id: "03",
         role: "Subject Matter Expert (SME)",
-        company: "PESU.io",
+        company: "PESU IO",
         date: "AUG 2025 - DEC 2025",
-        desc: "Technical mentorship for 60+ students.",
+        desc: "Technical mentorship for 60+ students in the full stack development course.",
         points: [
-            "Guided a cohort of 60+ students through the full software development lifecycle.",
-            "Conducted code reviews and debugging sessions to ensure project deployment."
+            "Guided a cohort of 60+ students through the full stack web development course.",
+            "Conducted code reviews and debugging sessions to ensure project deployment.",
+
         ],
         tech: ["Mentorship", "Code Review", "Full Stack"]
     },
     {
         id: "04",
-        role: "Teaching Assistant",
+        role: "Teaching Assistant (Web Technologies)",
         company: "PES University",
         date: "AUG 2025 - DEC 2025",
-        desc: "Academic support and lab management.",
+        desc: "Built MERN docs platform & QBs for Web Technologies.",
         points: [
-            "Assisted faculty in managing laboratory sessions and grading technical assignments.",
-            "Provided debugging support for students in core Computer Science courses."
+            "Assisted faculty in managing laboratory sessions and prepared QBs for the Web Technologies course.",
+            "Provided debugging support for students in the Web Technologies course."
         ],
-        tech: ["Academic", "Lab Support"]
+        tech: ["Academic", "MERN"]
     },
     {
         id: "05",
@@ -154,18 +156,6 @@ export const experienceData: Experience[] = [
             "Engineered a training env using high-res Digital Elevation Models (DEMs).",
             "Trained PPO agents and validated generated paths against human GPX trails."
         ],
-        tech: ["Python", "Reinforcement Learning", "PyTorch"]
-    },
-    {
-        id: "06",
-        role: "Core Developer",
-        company: "Nexus & GronIT",
-        date: "OCT 2024 - MAY 2025",
-        desc: "Hackathon mentorship and dev support.",
-        points: [
-            "Mentored 10+ teams on project architecture during the Nexus Skill Dev program.",
-            "Provided hands-on debugging guidance for 8+ teams at the Genesys State Hackathon."
-        ],
-        tech: ["Community", "Debugging"]
+        tech: ["Python", "Reinforcement Learning", "PyTorch", "PyBullet", "Pathfinding"]
     }
 ];
