@@ -131,14 +131,12 @@ export default function MagneticNav() {
             >
               <Icon className="h-5 w-5 text-gray-500 transition-colors group-hover:text-cyan-400" />
 
-              {/* Label tooltip */}
-              <motion.span
-                initial={{ opacity: 0, y: 10, scale: 0.8 }}
-                whileHover={{ opacity: 1, y: -8, scale: 1 }}
-                className="pointer-events-none absolute -top-8 whitespace-nowrap rounded-md bg-slate-800 px-2 py-1 font-mono text-xs text-slate-100 opacity-0"
-              >
+              {/* Label tooltip - shows on hover */}
+              <span className="pointer-events-none absolute -top-10 whitespace-nowrap rounded-md bg-slate-800 px-2.5 py-1.5 font-mono text-xs text-slate-100 opacity-0 scale-90 transition-all duration-200 group-hover:opacity-100 group-hover:scale-100 shadow-lg">
                 {item.label}
-              </motion.span>
+                {/* Tooltip arrow */}
+                <span className="absolute left-1/2 -bottom-1 -translate-x-1/2 w-2 h-2 bg-slate-800 rotate-45" />
+              </span>
             </motion.a>
           );
         })}

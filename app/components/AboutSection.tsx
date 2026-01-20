@@ -6,14 +6,14 @@ import { MapPin, Code, Camera, Clock } from "lucide-react";
 import { techStack, siteConfig } from "../lib/data";
 
 // Bento card wrapper with subtle antigravity effect
-function BentoCard({ 
-  children, 
-  className = "", 
+function BentoCard({
+  children,
+  className = "",
   delay = 0,
   floatDelay = 0
-}: { 
-  children: React.ReactNode; 
-  className?: string; 
+}: {
+  children: React.ReactNode;
+  className?: string;
   delay?: number;
   floatDelay?: number;
 }) {
@@ -43,14 +43,14 @@ function TechMarquee() {
       {/* Gradient masks */}
       <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#030712] to-transparent z-10" />
       <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#030712] to-transparent z-10" />
-      
-      <motion.div 
+
+      <motion.div
         className="flex gap-3 group-hover:[animation-play-state:paused]"
         animate={{ x: ["0%", "-50%"] }}
-        transition={{ 
-          duration: 25, 
-          repeat: Infinity, 
-          ease: "linear" 
+        transition={{
+          duration: 50,
+          repeat: Infinity,
+          ease: "linear"
         }}
       >
         {[...techStack, ...techStack].map((tech, i) => (
@@ -67,8 +67,8 @@ function TechMarquee() {
 }
 
 export default function AboutSection() {
-  const time = new Date().toLocaleTimeString('en-US', { 
-    hour: '2-digit', 
+  const time = new Date().toLocaleTimeString('en-US', {
+    hour: '2-digit',
     minute: '2-digit',
     hour12: true,
     timeZone: 'Asia/Kolkata'
@@ -91,7 +91,7 @@ export default function AboutSection() {
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[minmax(100px,auto)]">
-          
+
           {/* Profile Photo Card */}
           <BentoCard className="md:col-span-1 lg:col-span-1 md:row-span-2 p-0" delay={0} floatDelay={0}>
             <div className="relative w-full h-full min-h-[280px]">
@@ -137,14 +137,13 @@ export default function AboutSection() {
 
           {/* Bio Card */}
           <BentoCard className="md:col-span-2 lg:col-span-2 row-span-2 p-6" delay={0.15} floatDelay={3}>
-            <p className="text-gray-300 leading-relaxed">
-              Engineering student at PES University specializing in AI/ML. Beyond building 
-              campus-scale platforms for <span className="text-cyan-400 font-medium">GronIT</span> and{" "}
-              <span className="text-cyan-400 font-medium">Nexus</span>, I am deeply invested in technical 
-              mentorship. As a <span className="text-cyan-400 font-medium">Subject Matter Expert (SME)</span> at 
-              PESU.io and a <span className="text-cyan-400 font-medium">Teaching Assistant</span>, I have 
-              guided <span className="text-cyan-400 font-medium">60+ students</span> in shipping their own 
-              full-stack applications.
+            <p className="text-lg leading-relaxed text-slate-300">
+              Engineering student at <span className="text-cyan-400 font-medium">PES University</span> specializing in AI/ML.
+              My technical foundation is built on research, having engineered RL navigation agents at <span className="text-cyan-400 font-medium">RAPID</span>.
+              I am also deeply invested in mentorship as a <span className="text-cyan-400 font-medium">Subject Matter Expert (SME)</span> at PESU IO,
+              guiding <span className="text-white font-bold">60+ students</span> in shipping full-stack apps.
+              I support faculty as a <span className="text-cyan-400 font-medium">Teaching Assistant</span>,
+              aiding in lab management and academic instruction.
             </p>
           </BentoCard>
 

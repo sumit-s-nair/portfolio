@@ -96,7 +96,7 @@ export interface Experience {
 
 export const experienceData: Experience[] = [
     {
-        id: "01",
+        id: "a3f7c2d",
         role: "Full Stack Developer Intern",
         company: "Kapybara",
         date: "DEC 2025 - JAN 2026",
@@ -109,7 +109,7 @@ export const experienceData: Experience[] = [
         tech: ["Next.js", "TypeScript", "PostgreSQL", "tRPC", "LLM APIs"]
     },
     {
-        id: "02",
+        id: "e8b4a1f",
         role: "Head of Web Development",
         company: "GronIT",
         date: "OCT 2024 - PRESENT",
@@ -122,7 +122,7 @@ export const experienceData: Experience[] = [
         isCurrent: true
     },
     {
-        id: "03",
+        id: "7d2e9c6",
         role: "Subject Matter Expert (SME)",
         company: "PESU IO",
         date: "AUG 2025 - DEC 2025",
@@ -135,7 +135,7 @@ export const experienceData: Experience[] = [
         tech: ["Mentorship", "Code Review", "Full Stack"]
     },
     {
-        id: "04",
+        id: "b5c8f3a",
         role: "Teaching Assistant (Web Technologies)",
         company: "PES University",
         date: "AUG 2025 - DEC 2025",
@@ -147,7 +147,7 @@ export const experienceData: Experience[] = [
         tech: ["Academic", "MERN"]
     },
     {
-        id: "05",
+        id: "1f6d4e2",
         role: "Research Intern",
         company: "RAPID",
         date: "JUN 2025 - JUL 2025",

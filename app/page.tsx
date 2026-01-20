@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Loader from "./components/Loader";
 import Hero from "./components/Hero";
@@ -10,9 +10,25 @@ import ProjectsSection from "./components/ProjectsSection";
 import ContactSection from "./components/ContactSection";
 import { siteConfig } from "./lib/data";
 
+// Assets to preload in background
+const PRELOAD_ASSETS = [
+  "/profile.jpg",
+  "/projects/trailo.png",
+  "/projects/paper-trail.png",
+  "/projects/terrain-aware-path-recommendation.png",
+];
+
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
+
+  // Preload all assets in background while loader is showing
+  useEffect(() => {
+    PRELOAD_ASSETS.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   const handleLoaderComplete = useCallback(() => {
     setIsLoading(false);
