@@ -17,31 +17,106 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center">
-      <div className="container mx-auto">
-        <motion.h1
+    <div className="h-full w-full flex items-center justify-center bg-black p-6">
+      <motion.div 
+        className="text-center w-full max-w-lg px-8 py-12"
+        whileHover={{ y: -6, transition: { duration: 0.3 } }}
+        style={{ animation: "float 8s ease-in-out infinite" }}
+      >
+        {/* Name */}
+        <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-6xl font-bold"
+          transition={{ duration: 0.6 }}
+          className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-4"
         >
           Sumit Santhosh Nair
         </motion.h1>
-        
-        <p className="text-cyan-400 font-mono">
-          Full Stack Developer · Videographer
-        </p>
-        
-        <p className="text-gray-400 max-w-xl">
-          Engineering student at PES University.
-          Building scalable web applications.
-        </p>
-        
-        <div className="flex gap-4 mt-8">
-          <Link href="#work">View Work</Link>
-          <Link href="#contact">Contact</Link>
-        </div>
-      </div>
-    </section>
+
+        {/* Role */}
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="font-mono text-sm sm:text-base text-cyan-400 mb-6"
+        >
+          <span className="text-gray-500">{"// "}</span>
+          Full Stack Developer <span className="text-gray-500">·</span> Videographer
+        </motion.p>
+
+        {/* Bio */}
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="text-gray-400 text-sm max-w-md mx-auto mb-8 font-mono leading-relaxed"
+        >
+          <span className="text-gray-600">{"/* "}</span>
+          Engineering student at PES University. Focused on building scalable web
+          applications and exploring multi-modal AI systems.
+          <span className="text-gray-600">{" */"}</span>
+        </motion.p>
+
+        {/* Action buttons */}
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="flex items-center justify-center gap-3 mb-6"
+        >
+          <motion.a
+            href="#work"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            whileHover={{ y: -2, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="px-6 py-2.5 bg-cyan-500 text-black text-sm font-medium"
+          >
+            View Work
+          </motion.a>
+          
+          <motion.a
+            href="/experience"
+            whileHover={{ y: -2, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="px-6 py-2.5 text-gray-300 text-sm font-medium rounded-full border border-white/20 transition-all hover:text-cyan-400 hover:border-cyan-400/40 hover:bg-white/5"
+          >
+            Experience
+          </motion.a>
+        </motion.div>
+
+        {/* Social links */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="flex items-center justify-center"
+        >
+          <div className="flex items-center gap-1 px-4 py-2 rounded-full bg-white/5 border border-white/10">
+            {[
+              { icon: Github, href: "https://github.com/", label: "GitHub" },
+              { icon: Linkedin, href: "https://www.linkedin.com/", label: "LinkedIn" },
+              { icon: Mail, href: "mailto:gmail.com", label: "Email" },
+            ].map(({ icon: Icon, href, label }) => (
+              <motion.a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                whileHover={{ y: -2, scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-2.5 text-gray-400 transition-colors hover:text-cyan-400 rounded-full hover:bg-white/10"
+                aria-label={label}
+              >
+                <Icon className="w-4 h-4" />
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
+    </div>
   );
 };`;
 
@@ -61,7 +136,7 @@ const KEYWORDS = ["const", "let", "return", "import", "from", "export", "default
 function tokenize(line: string) {
   const tokens: { text: string; color: string }[] = [];
   let rest = line;
-  
+
   while (rest.length > 0) {
     if (rest.startsWith("//")) {
       tokens.push({ text: rest, color: COLORS.comment });
@@ -98,14 +173,14 @@ function tokenize(line: string) {
 function CodeBackground() {
   const [charIndex, setCharIndex] = useState(0);
   const total = HERO_SOURCE_CODE.length;
-  
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCharIndex(prev => (prev >= total ? 0 : prev + 1));
     }, 30);
     return () => clearInterval(interval);
   }, [total]);
-  
+
   const text = HERO_SOURCE_CODE.slice(0, charIndex);
   const lines = text.split("\n");
   const currentLine = lines.length - 1;
@@ -113,14 +188,14 @@ function CodeBackground() {
   const scrollOffset = Math.max(0, currentLine * lineHeight - 300);
 
   return (
-    <div 
+    <div
       className="absolute inset-0 overflow-hidden pointer-events-none opacity-[0.55]"
       style={{
         maskImage: "radial-gradient(ellipse 90% 70% at 50% 50%, black 30%, transparent 80%)",
         WebkitMaskImage: "radial-gradient(ellipse 90% 70% at 50% 50%, black 30%, transparent 80%)",
       }}
     >
-      <motion.div 
+      <motion.div
         className="font-mono text-sm leading-[22px] p-8 pt-32"
         animate={{ y: -scrollOffset }}
         transition={{ duration: 0.2 }}
@@ -166,16 +241,16 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Micro grid */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage: "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }}
       />
-      
+
       <CodeBackground />
-      
+
       <CornerMarker position="tl" />
       <CornerMarker position="tr" />
       <CornerMarker position="bl" />
@@ -222,19 +297,15 @@ export default function Hero() {
             >
               View Work
             </motion.a>
-            
+
             {/* Secondary - ghost capsule */}
             <motion.a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              href="/experience"
               whileHover={{ y: -2, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="px-6 py-2.5 text-gray-400 font-medium rounded-full border border-white/10 transition-all hover:text-cyan-400 hover:border-cyan-400/30 hover:bg-white/5"
             >
-              Contact
+              Experience
             </motion.a>
           </div>
 
