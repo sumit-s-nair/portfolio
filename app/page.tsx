@@ -10,7 +10,7 @@ import ProjectsSection from "./components/ProjectsSection";
 import ContactSection from "./components/ContactSection";
 import { siteConfig } from "./lib/data";
 
-// Assets to preload in background
+// Preload images in background (non-blocking)
 const PRELOAD_ASSETS = [
   "/profile.jpg",
   "/projects/trailo.png",
@@ -22,12 +22,21 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
 
-  // Preload all assets in background while loader is showing
+  // Preload images in the background using requestIdleCallback for optimal performance
   useEffect(() => {
-    PRELOAD_ASSETS.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
+    const preloadImages = () => {
+      PRELOAD_ASSETS.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    };
+
+    // Use requestIdleCallback if available, otherwise fallback to setTimeout
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(preloadImages);
+    } else {
+      setTimeout(preloadImages, 1);
+    }
   }, []);
 
   const handleLoaderComplete = useCallback(() => {

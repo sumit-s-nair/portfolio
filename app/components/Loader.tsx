@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const CHARS = "!@#$%^&*()_+-=[]{}|;':,./<>?`~0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const TARGET_TEXT = "Sumit Santhosh Nair";
-const DECODE_SPEED = 20;
+const DECODE_SPEED = 10;
 const CYCLES_PER_CHAR = 5;
 
 interface LoaderProps {

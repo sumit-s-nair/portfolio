@@ -29,6 +29,10 @@ export const metadata: Metadata = {
   description:
     "Full Stack Developer & Videographer. Engineering student at PES University building scalable web applications and exploring multi-modal AI systems.",
   keywords: [
+    "Sumit",
+    "Sumit Nair",
+    "Sumit S Nair",
+    "Nair",
     "Sumit Santhosh Nair",
     "Full Stack Developer",
     "Web Developer",
@@ -72,7 +76,7 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Sumit Santhosh Nair | Full Stack Developer",
     description:
       "Full Stack Developer & Videographer building scalable web applications.",
@@ -90,6 +94,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Sumit Santhosh Nair",
+    alternateName: ["Sumit", "Sumit Nair", "Sumit S Nair"],
+    url: siteUrl,
+    jobTitle: "Full Stack Developer",
+    sameAs: [
+      "https://github.com/sumit-s-nair",
+      "https://www.linkedin.com/in/sumit-santhosh-nair-3ba522283/",
+    ],
+    image: `${siteUrl}/profile.jpg`,
+  };
+
   return (
     <html lang="en" className="dark">
       <head>
@@ -97,6 +115,10 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased bg-void text-mist`}

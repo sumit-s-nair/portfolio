@@ -1,6 +1,7 @@
 // Portfolio site data - centralized for easy maintenance
 
 export interface Project {
+    id: string;
     title: string;
     description: string;
     tags: string[];
@@ -47,6 +48,7 @@ export const siteConfig: SiteConfig = {
 // Projects data
 export const projects: Project[] = [
     {
+        id: "papertrail",
         title: "Papertrail",
         description:
             "A full-stack, multi-user blogging platform with markdown editor, category management, OAuth authentication, and dark mode. Features tRPC for type-safe APIs and Drizzle ORM.",
@@ -56,6 +58,7 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/sumit-s-nair/papertrail",
     },
     {
+        id: "terrain-aware-path",
         title: "Terrain-Aware Path Recommendation",
         description:
             "An RL-based pathfinding system using PyBullet physics simulation. Trains agents to discover optimal hiking routes with realistic terrain friction and energy models.",
@@ -64,6 +67,7 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/sumit-s-nair/terrain-aware-path-recommendation",
     },
     {
+        id: "trailo",
         title: "Trailo",
         description:
             "A motorcycle group riding and real-time tracking app. Features live location sharing, group management, trail discovery, and SOS safety features for adventurers.",
